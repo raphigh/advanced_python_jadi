@@ -41,8 +41,12 @@ max_num = lst[0]
 max_div = cntPrimeDiv(lst[0])
 
 for i in lst[1:]:
-	if cntPrimeDiv(i) >= max_div:
-		max_num = max(i,max_num)
+	if cntPrimeDiv(i) > max_div:
+		max_num = i
+		max_div = cntPrimeDiv(i)
+	
+	elif cntPrimeDiv(i) == max_div:
+		max_num = max(max_num,i)
 		max_div = cntPrimeDiv(i)
 
 print(max_num,max_div)
